@@ -17504,6 +17504,20 @@ var _getConfig = (0, _config.default)('mainnet'),
 var utils = nearAPI.utils,
     connect = nearAPI.connect,
     providers = nearAPI.providers;
+fetch('https://rocky-everglades-00083.herokuapp.com/').then(function (response) {
+  return response.json();
+}).then(function (data) {
+  console.log(data);
+  var totalVolume = 0;
+  data.slice(0, 10).forEach(function (val) {
+    totalVolume += parseInt(val[1]);
+    document.querySelector('tbody').innerHTML += '<tr><th>' + val[0] + '</th><th>\t</th><th>' + val[1] + '</th></tr>';
+  });
+  console.log('Here');
+  document.querySelector('.volume').innerText = 'TOTAL VOLUME : ' + totalVolume;
+}).catch(function () {
+  console.log("Booo");
+});
 
 document.querySelector('form').onsubmit = /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(event) {
@@ -17665,7 +17679,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "37521" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42927" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
