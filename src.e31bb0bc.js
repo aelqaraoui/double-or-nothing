@@ -17504,7 +17504,7 @@ var _getConfig = (0, _config.default)('mainnet'),
 var utils = nearAPI.utils,
     connect = nearAPI.connect,
     providers = nearAPI.providers;
-fetch('https://rocky-everglades-00083.herokuapp.com/').then(function (response) {
+fetch('https://leaderboard-degen.vercel.app/api/indexer').then(function (response) {
   return response.json();
 }).then(function (data) {
   console.log(data);
@@ -17679,7 +17679,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42927" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "44287" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
