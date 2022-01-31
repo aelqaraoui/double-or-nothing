@@ -17510,8 +17510,10 @@ fetch('https://leaderboard-degen.vercel.app/api/indexer').then(function (respons
   console.log(data);
   var totalVolume = 0;
   data.slice(0, 10).forEach(function (val) {
-    totalVolume += parseInt(val[1]);
     document.querySelector('tbody').innerHTML += '<tr><th>' + val[0] + '</th><th>\t</th><th>' + val[1] + '</th></tr>';
+  });
+  data.forEach(function (val) {
+    totalVolume += parseInt(val[1]);
   });
   console.log('Here');
   document.querySelector('.volume').innerText = 'TOTAL VOLUME : ' + totalVolume;
@@ -17679,7 +17681,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "44287" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42277" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
